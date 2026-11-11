@@ -22,7 +22,11 @@ export async function signIn(_: AuthState, form: FormData): Promise<AuthState> {
   if (!parsed.success) return { error: parsed.error.issues[0].message };
   const supabase = await createClient();
   const { error } = await supabase.auth.signInWithPassword(parsed.data);
-  if (error) return { error: "E-mail ou senha incorretos." };
+  if (error) {
+    if (error.code === "invalid_credentials") return { error: "E-mail ou senha incorretos." };
+    if (error.code === "email_not_confirmed") return { error: "Confirme seu e-mail pelo link que enviamos antes de entrar." };
+    return { error: `Não foi possível entrar: ${error.message}` };
+  }
   redirect("/dashboard");
 }
 
