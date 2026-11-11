@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --muted: #64748b;
+  --primary: #0f766e;
+  --primary-fg: #ffffff;
+  --danger: #dc2626;
+  --success: #16a34a;
+  --series-1: #2a78d6;
+  --series-ref: #a8a29e;
+  --grid: #e7e5e4;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1120;
+    --surface: #111827;
+    --border: #1f2937;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --primary: #14b8a6;
+    --primary-fg: #04201d;
+    --danger: #f87171;
+    --success: #4ade80;
+    --series-1: #3987e5;
+    --series-ref: #78716c;
+    --grid: #1f2937;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-fg: var(--primary-fg);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.tabular { font-variant-numeric: tabular-nums; }
